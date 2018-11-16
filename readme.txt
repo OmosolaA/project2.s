@@ -5,12 +5,18 @@
 	isEmpty:	.asciiz "Input is empty."
 	invalidInput:	.asciiz "Invalid base-N number."
 .text
-	main: 
+	main: #gets the user input
 	li $v0, 8
 	la $a0, userInput
 	li $a1, 250
 	syscall
 
-	isTooLong_Function: 
+	isTooLong_Function: #calls isTooLong and prints the string
 	la $a0, isTooLong
+	li $v0, 4
+	syscall
+	j exit # jump to exit
+	
+	isEmpty_Function: # calls isEmpty and prints the string
+	la $a0, isEmpty
 	li $v0, 4
