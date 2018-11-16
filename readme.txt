@@ -16,7 +16,13 @@
 	li $v0, 4
 	syscall
 	j exit # jump to exit
-	
+
 	isEmpty_Function: # calls isEmpty and prints the string
 	la $a0, isEmpty
+	li $v0, 4
+	syscall 
+	j exit # jump to exit
+
+	invalidInput_Function:
+	la $a0, invalidInput
 	li $v0, 4
