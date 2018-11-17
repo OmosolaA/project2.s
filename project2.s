@@ -151,4 +151,5 @@
 
 	charD:
 		li $s6, 1
-
+		mult $s4, $s6
+		mflo $s7
