@@ -62,8 +62,11 @@
 		j stringTest
 
 	stringTest: #does all the string conversions based on the N
-		lb $t5, 0($a0)
+		lb $t5, 0($a0) #takes memory from t5 and put it in a0
 		beqz $t5, stringConversion
-		beq $t5, $t1 stringConversion
+		beq $t5, $t1 stringConversion #compares strings stored in t5 and t1
 		slti $t6, $5, 48
-		
+		bne $t6, $zero, invalidInput #if t6 and zero are not equal than input is invalid 
+		slti $t6, $t5, 58
+		bne $t6, $zero, moveChar #if t6 and zero are not equal then move the character 
+		slti $t6, $t5, 65 
