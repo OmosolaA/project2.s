@@ -111,3 +111,11 @@
 	base33Up: 
 		addi $s4, $s4, -55
 		j sResult
+	
+	
+	base33Low:
+		addi $s4, $s4, -87
+
+	sResult:
+		beq $s0, $s3, charA
+		beq $s0, $s2, charB
