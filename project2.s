@@ -153,3 +153,6 @@
 		li $s6, 1
 		mult $s4, $s6
 		mflo $s7
+		add $t7, $t7, $s7
+
+	printString:
