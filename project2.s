@@ -122,7 +122,7 @@
 		beq $s0, $s1, charC
 		beq $s0, $s5, charD
 
-	charA:
+	charA: #takes the number mutliplies it to convert back to base
 		li $s6, 24389  #(base 29)^3
 		mult $s4, $s6
 		mflo $s7
@@ -130,3 +130,9 @@
 		addi $s0, $s0, -1
 		addi $a0, $a0, 1
 		j baseConversion
+
+	charB:
+		li $s6, 841 # (base 29)^2
+		mult $s4, $s6
+		mflo $s7
+		add $t7, $t7, $s7
