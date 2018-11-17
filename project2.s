@@ -99,3 +99,10 @@
 		beq $s4, $t1, printString
 		slti $t6, $s4, 58
 		bne $t6, $zero, baseTen	
+		slti $t6, $s4, 88
+		bne $t6, $zero, base33Up
+		slti $t6, $s4, 120
+		bne $t6, $zero, base33Low
+
+	baseTen:
+
