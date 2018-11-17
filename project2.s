@@ -54,5 +54,9 @@
 		addi $t0, t0, 1
 		j stringIteration
 
-	stringLength:
-		beqz $t0, isEmpty_Function	
+	stringLength: #sets the length of the function and moves it from $a0 to $t4
+		beqz $t0, isEmpty_Function
+		slti $t3, $t0, 5 
+		beqz $t3, isTooLong_Function
+		move $a0, $t4
+		j stringTest
