@@ -77,3 +77,11 @@
 		bne $t6, $zero, invalidInput
 		slti $t6, $t5, 116 #97 + 29 "N"  - 10
 		bne $t6, $zero, moveChar
+		bgt $t5, 117, invalidInput #97 + 29 "N" - 9
+
+	moveChar: 
+		addi $a0, $a0, 1
+		j stringTest
+	
+	stringCoversion: 
+		move $a0, $t4 #move value in a0 to temporary register
