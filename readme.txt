@@ -45,3 +45,9 @@
 		addi $t0, $t0, 0 #empties the temp register by giving it a null value
 		addi $t2, $t2, 10 #give 10 bytes to temp register
 		add $t4, $t4, $a0
+	
+	stringIteration: 
+		lb $t2, 0($a0) #takes memory from $t2 to store in $a0
+		beqz $t2, stringLength
+		beq $t2, $t1, stringLength
+	stringLength:
