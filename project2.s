@@ -88,12 +88,12 @@
 		addi $t7, $t7, 0
 		add $s0, $s0, $t0
 		addi $s0, $s0, -1
-		li $s3, 3
-		li $s2, 2
-		li $s1, 1
-		li $s5, 0
+		li $s3, 3 #char  1
+		li $s2, 2 #char 2
+		li $s1, 1 #char 3
+		li $s5, 0 #char 4
 	
-	baseConversion: 
+	baseConversion: #converts base 10 to base 33 upper and base 33 lower
 		lb $s4, 0($a0)
 		beqz $s4, printString
 		beq $s4, $t1, printString
@@ -103,19 +103,25 @@
 		bne $t6, $zero, base33Up
 		slti $t6, $s4, 120
 		bne $t6, $zero, base33Low
-
-	baseTen:
+		
+	baseTen: # base 10 conversion
 		addi $s4, $s4 -48
 		j sResult
-
-	base33Up: 
+		
+	base33Up: # base 33 upper conversion 
 		addi $s4, $s4, -55
 		j sResult
 	
 	
-	base33Low:
+	base33Low: # base 33 low conversion
 		addi $s4, $s4, -87
 
-	sResult:
+	sResult: #compares the characters
 		beq $s0, $s3, charA
 		beq $s0, $s2, charB
+		beq $s0, $s1, charC
+		beq $s0, $s5, charD
+
+	charA:
+		li $s6, 24389  #(base 29)^3
+		mult $s4, $s6
