@@ -85,3 +85,6 @@
 	
 	stringCoversion: 
 		move $a0, $t4 #move value in a0 to temporary register
+		addi $t7, $t7, 0
+		add $s0, $s0, $t0
+		addi $s0, $s0, -1
