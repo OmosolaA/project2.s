@@ -49,5 +49,10 @@
 	stringIteration: 
 		lb $t2, 0($a0) #takes memory from $t2 to store in $a0
 		beqz $t2, stringLength
-		beq $t2, $t1, stringLength
+		beq $t2, $t1, stringLength #compares length of values stored in $t2 and $t1
+		addi $a0, $a0, 1
+		addi $t0, t0, 1
+		j stringIteration
+
 	stringLength:
+		beqz $t0, isEmpty_Function	
