@@ -105,4 +105,9 @@
 		bne $t6, $zero, base33Low
 
 	baseTen:
+		addi $s4, $s4 -48
+		j sResult
 
+	base33Up: 
+		addi $s4, $s4, -55
+		j sResult
