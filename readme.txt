@@ -39,3 +39,9 @@
 		lb $t9, 0($a0) #takes the memory from temp register makes it NULL and store it to register a0
 		beq $t8, $t9 deleteChar #compares $t8 and $t9 to seee if equal if so deleteChar
 		move $t9, $a0 #move null space in $t9 to $a0
+		j inputLength
+
+	inputLength:
+		addi $t0, $t0, 0 #empties the temp register by giving it a null value
+		addi $t2, $t2, 10 #give 10 bytes to temp register
+		add $t4, $t4, $a0
