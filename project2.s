@@ -131,7 +131,7 @@
 		addi $a0, $a0, 1
 		j baseConversion
 
-	charB:
+	charB: 
 		li $s6, 841 # (base 29)^2
 		mult $s4, $s6
 		mflo $s7
@@ -140,5 +140,7 @@
 		addi $a0, $a0, 1
 		j baseConversion
 
-	charC:
+	charC:  #takes the number mutliplies it to convert back to base
 		li $s6, 29 # (base 29)^1
+		mult $s4, $s6
+		mflo $s7
