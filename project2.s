@@ -60,3 +60,10 @@
 		beqz $t3, isTooLong_Function
 		move $a0, $t4
 		j stringTest
+
+	stringTest: #does all the string conversions based on the N
+		lb $t5, 0($a0)
+		beqz $t5, stringConversion
+		beq $t5, $t1 stringConversion
+		slti $t6, $5, 48
+		
