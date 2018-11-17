@@ -147,3 +147,8 @@
 		add $t7, $t7, $s7
 		addi $s0, $s0, -1
 		addi $a0, $a0, 1
+		j base_convert_input
+
+	charD:
+		li $s6, 1
+
