@@ -66,7 +66,14 @@
 		beqz $t5, stringConversion
 		beq $t5, $t1 stringConversion #compares strings stored in t5 and t1
 		slti $t6, $5, 48
-		bne $t6, $zero, invalidInput #if t6 and zero are not equal than input is invalid 
+		bne $t6, $zero, invalidInput #if t6 and  zero are not equal than input is invalid 
 		slti $t6, $t5, 58
 		bne $t6, $zero, moveChar #if t6 and zero are not equal then move the character 
-		slti $t6, $t5, 65 
+		slti $t6, $t5, 65
+		bne $t6, $zero, invalidInput 
+		slti $t6, $t5, 84 #65 + 29 "N"  - 10 
+		bne $t6, $zero, moveChar
+		slti $t6, $t5, 97
+		bne $t6, $zero, invalidInput
+		slti $t6, $t5, 116 #97 + 29 "N"  - 10
+		bne $t6, $zero, moveChar
