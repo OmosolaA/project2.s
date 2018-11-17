@@ -83,7 +83,7 @@
 		addi $a0, $a0, 1
 		j stringTest
 	
-	stringCoversion: 
+	stringCoversion: #converts string to character
 		move $a0, $t4 #move value in a0 to temporary register
 		addi $t7, $t7, 0
 		add $s0, $s0, $t0
@@ -93,4 +93,9 @@
 		li $s1, 1
 		li $s5, 0
 	
-	baseConversion:
+	baseConversion: 
+		lb $s4, 0($a0)
+		beqz $s4, printString
+		beq $s4, $t1, printString
+		slti $t6, $s4, 58
+		bne $t6, $zero, baseTen	
